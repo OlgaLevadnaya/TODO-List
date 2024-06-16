@@ -11,9 +11,11 @@ Olga Levadnaya
 Realization API for **TODO List** application.
 
 **Technologies:**
-- Python v. 3.9
-- Django v. 3.2.16
-- djangorestframework 3.12.4
+- Python
+- Django
+- DRF
+- JWT + Djoser
+
 
 ---
 
