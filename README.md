@@ -60,10 +60,14 @@ python3 manage.py migrate
 
 ---
 
-This is the first version of the project. 
+This is the second version of the project. In the second version added authorization and users can see olny their tasks now.
 
 In plans:
 
 - improve the User model (in the first version we redefined User model to have more flexibility);
 
-- add authorization and permitions.
+- include number of days until deadline;
+
+- a simple frontend to everybody can try this app;
+
+- deployment on a remote server.
