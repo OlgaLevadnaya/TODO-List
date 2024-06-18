@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 from rest_framework import serializers
+
 
 from todo_app.models import Task, Category
 
@@ -12,6 +14,7 @@ class TaskSerializer(serializers.ModelSerializer):
         slug_field='username',
         read_only=True
     )
+    deadline = serializers.DateTimeField(format='%Y-%m-%d %H:%M')
 
     class Meta:
         model = Task

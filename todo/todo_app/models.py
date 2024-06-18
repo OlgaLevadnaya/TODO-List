@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
+from todo.settings import DATETIME_INPUT_FORMATS
+
 
 User = get_user_model()
 
