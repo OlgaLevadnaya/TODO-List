@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 from rest_framework import viewsets
 
 from todo_app.models import Category, Task
@@ -11,7 +12,10 @@ class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
 
     def perform_create(self, serializer):
-        serializer.save(creator=self.request.user)
+        serializer.save(
+            creator=self.request.user,
+            create_date=timezone.now()
+        )
 
     def get_queryset(self):
         return Task.objects.filter(creator=self.request.user)

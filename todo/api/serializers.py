@@ -15,6 +15,11 @@ class TaskSerializer(serializers.ModelSerializer):
         read_only=True
     )
     deadline = serializers.DateTimeField(format='%Y-%m-%d %H:%M')
+    create_date = serializers.DateTimeField(
+        read_only=True,
+        default=timezone.now(),
+        format='%Y-%m-%d %H:%M'
+    )
 
     class Meta:
         model = Task
