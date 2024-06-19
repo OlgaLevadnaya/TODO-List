@@ -25,6 +25,13 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = '__all__'
 
+    def validate_deadline(self, value):
+        if value < timezone.now():
+            raise serializers.ValidationError(
+                'Set the correct deadline date'
+            )
+        return value
+
 
 class CategorySerializer(serializers.ModelSerializer):
 
