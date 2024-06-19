@@ -11,15 +11,17 @@ User = get_user_model()
 
 class TaskSerializer(serializers.ModelSerializer):
     creator = serializers.SlugRelatedField(
+        read_only=True,
         slug_field='username',
-        read_only=True
+        default=serializers.CurrentUserDefault(),
     )
     deadline = serializers.DateTimeField(format='%Y-%m-%d %H:%M')
     create_date = serializers.DateTimeField(
         read_only=True,
-        default=timezone.now(),
+        default=serializers.CreateOnlyDefault(timezone.now),
         format='%Y-%m-%d %H:%M'
     )
+    days_before_deadline = serializers.SerializerMethodField()
 
     class Meta:
         model = Task
@@ -31,6 +33,9 @@ class TaskSerializer(serializers.ModelSerializer):
                 'Set the correct deadline date'
             )
         return value
+
+    def get_days_before_deadline(self, obj):
+        return (obj.deadline - timezone.now()).days
 
 
 class CategorySerializer(serializers.ModelSerializer):
