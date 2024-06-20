@@ -6,20 +6,24 @@ User = get_user_model()
 
 
 class Category(models.Model):
+    """Category model class."""
     title = models.CharField(
         max_length=50,
         verbose_name='Category'
     )
 
     class Meta:
+        """Definition of verbose names for Category model."""
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
 
     def __str__(self) -> str:
+        """Returns string representation for Category model."""
         return self.title
 
 
 class Task(models.Model):
+    """Task model class."""
     IMPORTANCE_CHOICES = (
         ('LI', 'Low importance'),
         ('AI', 'Average importance'),
@@ -54,6 +58,11 @@ class Task(models.Model):
     )
 
     class Meta:
+        """Definition of ordering and verbose names for Task model."""
         ordering = ['-id']
         verbose_name = 'Task'
         verbose_name_plural = 'Tasks'
+
+    def __str__(self) -> str:
+        """Returns string representation for Task model."""
+        return f'Deadline{self.deadline}: {self.text}'[:30]
