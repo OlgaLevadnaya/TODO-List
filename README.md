@@ -58,7 +58,7 @@ python3 manage.py migrate
 
 - *api/v1/categories/* (GET): getting the list of categories;
 
-- *api/v1/categories/{id}/* (GET): gettind an information about category with identifier **id**.
+- *api/v1/categories/{id}/* (GET): gettind a list of tasks in category with identifier **id**.
 
 ---
 
