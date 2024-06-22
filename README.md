@@ -61,15 +61,3 @@ python3 manage.py migrate
 - *api/v1/categories/{id}/* (GET): gettind a list of tasks in category with identifier **id**.
 
 ---
-
-This is the second version of the project. In the second version added authorization and users can see olny their tasks now.
-
-In plans:
-
-- improve the User model (in the first version we redefined User model to have more flexibility);
-
-- include number of days until deadline;
-
-- a simple frontend to everybody can try this app;
-
-- deployment on a remote server.
